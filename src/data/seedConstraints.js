@@ -1,0 +1,60 @@
+const seedConstraints = {
+  'energy-storage': [
+    { id: 'c1', assumption: 'Energy density requires heavy materials', borrowedFrom: 'lead-acid batteries (automotive)', provocation: 'Does mass still need to be the price of capacity?', crackHint: 'Supercapacitors and structural batteries decouple the two.' },
+    { id: 'c2', assumption: 'Batteries must be charged from a central grid', borrowedFrom: 'early electric utilities', provocation: 'What if the storage medium itself generates or harvests?', crackHint: 'Flow batteries and redox couples can be recharged chemically.' },
+    { id: 'c3', assumption: 'Cycle life trades directly against energy density', borrowedFrom: 'consumer electronics', provocation: 'Must we accept fewer cycles for more watt-hours?', crackHint: 'Lithium-iron-phosphate and sodium-ion chemistries break the curve.' },
+    { id: 'c4', assumption: 'Temperature control demands active thermal systems', borrowedFrom: 'internal combustion engine cooling', provocation: 'Is active management the only path to safety?', crackHint: 'Phase-change materials and self-regulating electrolytes shift the burden.' },
+    { id: 'c5', assumption: 'Raw materials must be mined at scale', borrowedFrom: '19th-century metallurgy', provocation: 'Does extraction remain the only feedstock strategy?', crackHint: 'Direct lithium extraction and urban mining close the loop.' },
+    { id: 'c6', assumption: 'Form factor is dictated by cell geometry', borrowedFrom: 'cylindrical alkaline cells', provocation: 'Must we pack around rigid shapes?', crackHint: 'Printable and structural batteries let the device define the cell.' },
+  ],
+  desalination: [
+    { id: 'c1', assumption: 'Pure water requires energy-intensive phase change or pressure', borrowedFrom: 'industrial distillation (petroleum)', provocation: 'Does purification still need to be a high-energy industrial process?', crackHint: 'Biological membranes operate at ambient conditions.' },
+    { id: 'c2', assumption: 'Brine is an unavoidable waste product', borrowedFrom: 'chlor-alkali industry', provocation: 'Must concentrate be discarded or can it become feedstock?', crackHint: 'Zero-liquid discharge and mineral recovery turn liability into revenue.' },
+    { id: 'c3', assumption: 'Intake must pull from open ocean', borrowedFrom: 'once-through cooling at power plants', provocation: 'Is bulk seawater the only viable source?', crackHint: 'Brackish aquifers and municipal wastewater reuse reduce intake volume.' },
+    { id: 'c4', assumption: 'Membranes foul and must be replaced on schedule', borrowedFrom: 'reverse osmosis in food processing', provocation: 'Is periodic replacement an engineering inevitability?', crackHint: 'Self-cleaning surfaces and electrochemical defouling extend life dramatically.' },
+    { id: 'c5', assumption: 'Product water must meet drinking standards at the plant gate', borrowedFrom: 'municipal treatment plants', provocation: 'Does the final quality need to be achieved centrally?', crackHint: 'Decentralized polishing and point-of-use mineralization shift the burden.' },
+    { id: 'c6', assumption: 'Capital cost scales with throughput', borrowedFrom: 'large-scale chemical plants', provocation: 'Must bigger always mean more expensive per cubic meter?', crackHint: 'Modular staged systems and containerized plants flatten the curve.' },
+  ],
+  'cement-steel': [
+    { id: 'c1', assumption: 'Structural load-bearing requires mass', borrowedFrom: 'stone masonry', provocation: 'Is compressive mass still the only reliable mechanism?', crackHint: 'Tensile composites and tensegrity allow far lighter structures.' },
+    { id: 'c2', assumption: 'High-temperature kilns are required to make clinker', borrowedFrom: 'lime burning in Roman times', provocation: 'Must we still cook rock at 1450 °C?', crackHint: 'Alkali-activated materials and carbonatable binders bypass the kiln.' },
+    { id: 'c3', assumption: 'Steel must be melted and cast in large batches', borrowedFrom: 'Bessemer process economics', provocation: 'Is molten processing the only route to structural sections?', crackHint: 'Additive manufacturing and cold-formed sections change the scale.' },
+    { id: 'c4', assumption: 'Corrosion protection requires coatings or alloys', borrowedFrom: 'naval architecture', provocation: 'Must we always fight oxidation after the fact?', crackHint: 'Self-healing concrete and cathodic protection built into the matrix.' },
+    { id: 'c5', assumption: 'Design codes assume linear-elastic behavior', borrowedFrom: 'early 20th-century steel testing', provocation: 'Do we still need to stay in the elastic range?', crackHint: 'Performance-based design and controlled yielding unlock new efficiencies.' },
+    { id: 'c6', assumption: 'Demolition produces low-value rubble', borrowedFrom: 'post-war reconstruction', provocation: 'Is down-cycling the best end-of-life outcome?', crackHint: 'Design for disassembly and reclaimed structural elements close the loop.' },
+  ],
+  agriculture: [
+    { id: 'c1', assumption: 'Yield requires synthetic nitrogen fertilizer', borrowedFrom: 'Haber-Bosch process (WWI munitions)', provocation: 'Must we fix nitrogen at 500 °C and 200 atm?', crackHint: 'Biological nitrogen fixation and precision delivery break the dependency.' },
+    { id: 'c2', assumption: 'Monoculture maximizes output per hectare', borrowedFrom: '19th-century plantation economics', provocation: 'Is uniformity still the path to productivity?', crackHint: 'Polycultures and intercropping often outperform in total calories and resilience.' },
+    { id: 'c3', assumption: 'Pests must be killed with broad-spectrum chemistry', borrowedFrom: 'DDT-era pesticide development', provocation: 'Does control require eradication?', crackHint: 'Integrated pest management and push-pull systems use ecology instead.' },
+    { id: 'c4', assumption: 'Soil is a passive medium for holding roots', borrowedFrom: 'hydroponic thinking', provocation: 'Is dirt merely structural support?', crackHint: 'Regenerative practices treat soil as a living microbiome.' },
+    { id: 'c5', assumption: 'Harvest must be synchronized for mechanical efficiency', borrowedFrom: 'combine harvester logic', provocation: 'Must everything ripen on the same day?', crackHint: 'Perennial grains and robotic selective harvesting remove the constraint.' },
+    { id: 'c6', assumption: 'Water must be applied on a fixed irrigation schedule', borrowedFrom: 'canal systems in arid empires', provocation: 'Is calendar-based watering still optimal?', crackHint: 'Soil-moisture sensors and deficit irrigation match supply to demand.' },
+  ],
+  'antibiotics-pharma': [
+    { id: 'c1', assumption: 'New antibiotics must come from soil microbes', borrowedFrom: "Waksman's streptomycin discovery", provocation: 'Is the dirt still the best library?', crackHint: 'Synthetic biology and genome mining access unculturable diversity.' },
+    { id: 'c2', assumption: 'Resistance is an inevitable evolutionary tax', borrowedFrom: 'early penicillin clinical use', provocation: 'Must every new drug eventually fail?', crackHint: 'Anti-evolution strategies and combination therapies slow the clock.' },
+    { id: 'c3', assumption: 'Clinical trials must be large and long', borrowedFrom: 'post-thalidomide regulation', provocation: 'Does statistical power require thousands of patients?', crackHint: 'Adaptive platform trials and real-world evidence shrink the timeline.' },
+    { id: 'c4', assumption: 'Manufacturing must be centralized at GMP scale', borrowedFrom: 'batch fermentation of penicillin', provocation: 'Must production remain in mega-facilities?', crackHint: 'Continuous manufacturing and on-demand synthesis decentralize supply.' },
+    { id: 'c5', assumption: 'Spectrum must be broad to cover unknowns', borrowedFrom: 'empiric therapy in critical care', provocation: 'Is shotgun coverage the only safe default?', crackHint: 'Rapid diagnostics and narrow-spectrum agents change the calculus.' },
+    { id: 'c6', assumption: 'Intellectual property drives innovation', borrowedFrom: 'Bayh-Dole Act university model', provocation: 'Does exclusivity remain the only incentive?', crackHint: 'Open-source drug discovery and prize models decouple reward from monopoly.' },
+  ],
+  'urban-transit': [
+    { id: 'c1', assumption: 'High capacity requires heavy rail', borrowedFrom: '19th-century steam railroads', provocation: 'Does throughput still demand steel wheels on steel rails?', crackHint: 'Bus rapid transit and rubber-tired guided systems match capacity at lower cost.' },
+    { id: 'c2', assumption: 'Schedules must be fixed and published', borrowedFrom: 'timetable culture of national railways', provocation: 'Is the timetable still the contract with the rider?', crackHint: 'On-demand microtransit and dynamic headway remove the clock.' },
+    { id: 'c3', assumption: 'Right-of-way must be grade-separated', borrowedFrom: 'highway engineering standards', provocation: 'Must transit always escape street level?', crackHint: 'Protected lanes and signal priority give rail-like performance on surface streets.' },
+    { id: 'c4', assumption: 'Fare collection happens at the vehicle door', borrowedFrom: 'streetcar conductor model', provocation: 'Must payment slow boarding?', crackHint: 'Account-based fare capping and open payment remove the gate.' },
+    { id: 'c5', assumption: 'Peak demand dictates fleet size', borrowedFrom: 'rush-hour commuter rail economics', provocation: 'Must we own enough vehicles for the worst 30 minutes?', crackHint: 'Demand-responsive fleets and shared autonomous vehicles flatten the peak.' },
+    { id: 'c6', assumption: 'Stations are fixed points in the network', borrowedFrom: 'subway stop spacing logic', provocation: 'Must the infrastructure stay nailed to the map?', crackHint: 'Flexible routing and pop-up stops let the network adapt daily.' },
+  ],
+  education: [
+    { id: 'c1', assumption: 'Learning happens in age-graded cohorts', borrowedFrom: 'Prussian school system', provocation: 'Must students march together by birth year?', crackHint: 'Competency-based progression and multi-age classrooms break the lockstep.' },
+    { id: 'c2', assumption: 'Knowledge must be delivered by a certified teacher', borrowedFrom: 'normal-school professionalization', provocation: 'Is the credential the only proof of expertise?', crackHint: 'Peer instruction, AI tutors, and community experts expand the faculty.' },
+    { id: 'c3', assumption: 'Assessment requires proctored, timed exams', borrowedFrom: 'Cambridge Tripos and civil-service testing', provocation: 'Must high-stakes performance be captured in a single sitting?', crackHint: 'Portfolio assessment and continuous evidence remove the pressure cooker.' },
+    { id: 'c4', assumption: 'Curriculum is designed centrally and delivered uniformly', borrowedFrom: 'textbook adoption committees', provocation: 'Must every classroom follow the same sequence?', crackHint: 'Open educational resources and teacher co-design enable local adaptation.' },
+    { id: 'c5', assumption: 'Physical presence is required for serious study', borrowedFrom: 'residential college model', provocation: 'Does learning still need a campus?', crackHint: 'Distributed cohorts and project-based apprenticeships relocate education.' },
+    { id: 'c6', assumption: 'Credentials must come from accredited institutions', borrowedFrom: 'early 20th-century accreditation cartels', provocation: 'Is the diploma the only signal employers trust?', crackHint: 'Stackable micro-credentials and skills-based hiring bypass the gatekeepers.' },
+  ],
+}
+
+export default seedConstraints
